@@ -1,0 +1,451 @@
+const PNFT_DATA = {
+  "Preescolar": {
+    "Apropiación tecnológica y Digital": {
+      saberes: [
+        { nombre: "Computadora", indicadores: ["Identificar qué es una computadora y algunas de sus características, a partir de experiencias prácticas de interacción con dispositivos digitales."] },
+        { nombre: "Software", indicadores: ["Reconocer elementos visuales básicos de la interfaz de software (iconos, botones, ventanas), interactuando con ellos mediante el uso guiado de dispositivos digitales."] },
+        { nombre: "Herramientas de creación de contenido multimedia", indicadores: ["Reconocer las herramientas de creación de contenido multimedia según su utilidad: editor gráfico, grabadora de audio y video, en la creación de recursos digitales."] },
+        { nombre: "Hardware", indicadores: ["Reconocer componentes básicos del hardware, como dispositivos de entrada y salida de datos, explorando su función al encender, usar o interactuar con la computadora en actividades cotidianas."] },
+        { nombre: "Internet", indicadores: ["Reconocer qué es Internet y los requerimientos de un dispositivo para conectarse a Internet, realizando una exploración dirigida."] },
+        { nombre: "Conexión entre dispositivos", indicadores: ["Reconocer la conexión entre dispositivos por bluetooth y los requerimientos de dispositivos digitales para conectarse, a través de una exploración dirigida."] }
+      ]
+    },
+    "Programación y Algoritmos": {
+      saberes: [
+        { nombre: "Entorno de programación iconográfico", indicadores: ["Reconocer el entorno de programación iconográfico, interactuando con bloques de la interfaz, como desplazamiento, apariencia o sonido, mediante el uso guiado del docente."] },
+        { nombre: "Lateralidad y orientación espacial", indicadores: ["Reconocer los conceptos de lateralidad y orientación espacial en la construcción de secuencias de acciones para la solución de retos de programación."] },
+        { nombre: "Evento", indicadores: ["Reconocer que un evento desencadena una acción, identificando la relación de causa y efecto en juegos o actividades."] },
+        { nombre: "Estado", indicadores: ["Reconocer el concepto de estado programando objetos que modifican las propiedades de orientación y/o dirección."] },
+        { nombre: "Algoritmo", indicadores: ["Reconocer el concepto de algoritmo mediante secuencias de acciones lógicas y ordenadas, en la construcción de soluciones a desafíos propuestos."] },
+        { nombre: "Dato", indicadores: ["Reconocer la importancia del dato en contexto físico y en contexto digital mientras soluciona desafíos propuestos."] },
+        { nombre: "Estructuras repetitivas", indicadores: ["Reconocer estructuras repetitivas en secuencias de acciones durante la programación guiada de objetos digitales, distinguiendo si una acción se repite un número limitado o ilimitado de veces."] }
+      ]
+    },
+    "Computación física y Robótica": {
+      saberes: [
+        { nombre: "Robot", indicadores: ["Reconocer qué es un robot, sus componentes y algunos de sus usos, mediante actividades lúdicas de exploración o programación guiada."] }
+      ]
+    },
+    "Ciencia de datos e Inteligencia Artificial": {
+      saberes: [
+        { nombre: "Dato", indicadores: ["Identificar el dato y su importancia en situaciones cotidianas, reconociendo diferentes tipos como texto, imagen, sonido o video."] },
+        { nombre: "Estrategias para presentar datos", indicadores: ["Reconocer gráficos pictóricos como estrategia para representar datos recolectados en actividades lúdicas."] },
+        { nombre: "Visualización de datos", indicadores: ["Interpretar gráficos pictóricos como parte de la visualización de datos (colores, formas, cantidades), con apoyo del docente, relacionándolos con datos conocidos del entorno."] },
+        { nombre: "Realidad aumentada", indicadores: ["Experimentar con realidad aumentada en entornos físicos mediante actividades sensoriales y lúdicas, con acompañamiento del docente."] }
+      ]
+    }
+  },
+  "1°": {
+    "Apropiación tecnológica y Digital": {
+      saberes: [
+        { nombre: "Computadora", indicadores: ["Reconocer la computadora como una herramienta tecnológica, identificando sus características básicas, funciones e importancia en la vida cotidiana, por medio de la observación y manipulación práctica."] },
+        { nombre: "Hardware", indicadores: ["Identificar el hardware básico de una computadora, reconociendo dispositivos de entrada, salida y las acciones de encendido y apagado, mediante actividades prácticas guiadas."] },
+        { nombre: "Software", indicadores: ["Identificar el software de una computadora, reconociendo los elementos básicos de la interfaz de usuario mediante actividades prácticas guiadas."] },
+        { nombre: "Conexión entre dispositivos (bluetooth)", indicadores: ["Reconocer el bluetooth como medio de conexión entre dispositivos utilizando dispositivos digitales en el aula."] },
+        { nombre: "Herramientas de creación de contenido multimedia (audio, imágenes)", indicadores: ["Utilizar herramientas de creación de contenido multimedia para la creación de audios e incorporación de imágenes en productos digitales."] },
+        { nombre: "Internet", indicadores: ["Reconocer los dispositivos y programas que permiten la conexión para la navegación en Internet."] }
+      ]
+    },
+    "Programación y Algoritmos": {
+      saberes: [
+        { nombre: "Entorno de programación iconográfico", indicadores: ["Reconocer elementos básicos de un entorno de programación iconográfico, como bloques de desplazamiento, orientación, apariencia, sonido, eventos y control, mediante la navegación en la interfaz con actividades guiadas."] },
+        { nombre: "Reconocimiento de patrones", indicadores: ["Reconocer patrones de movimiento en secuencias de instrucciones simples para que un personaje siga una ruta desde un punto de inicio hasta un punto de llegada."] },
+        { nombre: "Estado", indicadores: ["Reconocer el estado de un objeto digital en relación con su orientación, dirección y tamaño, identificando variaciones en dichos atributos, mediante secuencias de programaciones simples."] },
+        { nombre: "Algoritmo", indicadores: ["Identificar un algoritmo en situaciones de la vida diaria, reconociendo secuencias lógicas y ordenadas de acciones, para ser representadas de forma analógica (dibujos, tarjetas, gestos) y/o digital (entorno iconográfico)."] },
+        { nombre: "Dato", indicadores: ["Identificar el dato en situaciones de la vida diaria, reconociendo información valiosa en contextos físicos (como etiquetas, señales, objetos) y digitales (como imágenes, íconos o pantallas interactivas)."] },
+        { nombre: "Estructuras repetitivas", indicadores: ["Reconocer estructuras repetitivas al identificar ciclos finitos (como una canción o rutina) e infinitos (como el tic-tac del reloj o el movimiento del ventilador) en situaciones de la vida diaria."] },
+        { nombre: "Evento", indicadores: ["Reconocer el evento como relación de causa y efecto al participar en juegos analógicos, identificando cómo una acción provoca una respuesta o cambio observable durante la dinámica."] }
+      ]
+    },
+    "Ciencia de datos e Inteligencia Artificial": {
+      saberes: [
+        { nombre: "Fundamentos de la IA", indicadores: ["Reconocer los fundamentos de la inteligencia artificial a través de objetos o situaciones del entorno donde esta tecnología está presente, mediante actividades guiadas con apoyo visual o audiovisual."] },
+        { nombre: "Asistentes virtuales", indicadores: ["Reconocer qué es un asistente virtual y sus funciones a partir de demostraciones guiadas o videos educativos."] }
+      ]
+    }
+  },
+  "2°": {
+    "Apropiación tecnológica y Digital": {
+      saberes: [
+        { nombre: "Hardware", indicadores: ["Identificar el funcionamiento de los componentes básicos del hardware, reconociendo cómo cuidarlos mientras utilizan la computadora en la cotidianidad."] },
+        { nombre: "Software (programas)", indicadores: ["Explorar el funcionamiento de diferentes programas de software según la tarea escolar asignada durante el trabajo en aula."] },
+        { nombre: "Conexión entre dispositivos", indicadores: ["Reconocer el wifi como medio de conexión entre dispositivos conectando dispositivos digitales en el aula."] },
+        { nombre: "Herramienta de productividad (procesador de texto)", indicadores: ["Utilizar herramientas de productividad como el procesador de texto, reconociendo la cinta de opciones, pestañas y comandos básicos, así como sus funciones por teclado, durante la creación de textos sencillos."] },
+        { nombre: "Herramientas de creación de contenido multimedia (grabadora de audio y editores de gráficos)", indicadores: ["Utilizar herramientas de creación de contenido multimedia, como la grabadora de audio y editores de gráficos, aplicando funciones básicas como crear, editar y guardar archivos, durante actividades guiadas de producción digital en el aula."] },
+        { nombre: "Internet", indicadores: ["Aplicar normas básicas de navegación por internet, para acceder a páginas educativas seguras, bajo acompañamiento del docente."] }
+      ]
+    },
+    "Programación y Algoritmos": {
+      saberes: [
+        { nombre: "Entorno de programación por bloques", indicadores: ["Aplicar el uso del entorno de programación por bloques, explorando la interfaz y el área de bloques mientras construye secuencias de acciones que representen historias cotidianas."] },
+        { nombre: "Algoritmo", indicadores: ["Diseñar un algoritmo en lenguaje natural como una secuencia ordenada que resuelve situaciones de la vida cotidiana."] },
+        { nombre: "Dato", indicadores: ["Clasificar el dato como numérico o de texto en ejemplos de la vida cotidiana, valorando su uso en actividades del entorno cercano."] },
+        { nombre: "Variable", indicadores: ["Identificar una variable en contextos de la vida cotidiana, observando elementos que cambian en relación con otros (como edad, cantidad, clima o tiempo de actividad)."] },
+        { nombre: "Estructuras repetitivas", indicadores: ["Identificar estructuras repetitivas en actividades programadas, diferenciando entre ciclos finitos e infinitos según la cantidad de repeticiones requeridas."] },
+        { nombre: "Estructuras condicionales", indicadores: ["Aplicar estructuras condicionales simples en un entorno de programación por bloques en la resolución de un ejercicio programado."] },
+        { nombre: "Operadores aritméticos", indicadores: ["Reconocer los operadores aritméticos de suma y resta en situaciones de la vida cotidiana y su uso en un entorno de programación por bloques."] },
+        { nombre: "Operador relacional", indicadores: ["Reconocer el operador relacional “igual que” en situaciones de la vida cotidiana y su uso en un entorno de programación por bloques."] },
+        { nombre: "Evento", indicadores: ["Reconocer el evento en un entorno de programación por bloques que activa una acción o cambio visible en un objeto del programa."] }
+      ]
+    },
+    "Ciencia de datos e Inteligencia Artificial": {
+      saberes: [
+        { nombre: "Fundamentos de la IA", indicadores: ["Describir los fundamentos de la inteligencia artificial en situaciones cotidianas, utilizando ejemplos guiados y preguntas orientadoras."] },
+        { nombre: "Asistentes virtuales", indicadores: ["Reconocer el uso de asistentes virtuales en situaciones cotidianas, mediante ejemplos guiados que permitan la interacción."] }
+      ]
+    }
+  },
+  "3°": {
+    "Apropiación tecnológica y Digital": {
+      saberes: [
+        { nombre: "Hardware", indicadores: ["Explicar las funciones básicas del hardware (entrada, procesamiento, almacenamiento y salida), en actividades prácticas con dispositivos computacionales en el aula."] },
+        { nombre: "Redes de comunicación", indicadores: ["Describir qué son las redes de comunicación y cómo funciona una red local, a partir de la observación y la práctica de intercambio de información entre dispositivos conectados en el aula."] },
+        { nombre: "Gestión de archivos", indicadores: ["Reconocer la gestión de archivos como proceso para la organización y clasificación de la información, mediante el uso de carpetas, subcarpetas y la exploración de archivos digitales."] },
+        { nombre: "Herramienta de productividad (editor de presentaciones)", indicadores: ["Utilizar herramientas de productividad, como el editor de presentaciones, empleando la cinta de opciones, pestañas, comandos básicos y sus funciones por teclado en la elaboración de presentaciones digitales."] },
+        { nombre: "Herramientas de creación de contenido multimedia (video)", indicadores: ["Aplicar herramientas de creación de contenido multimedia en la creación, edición y guardado de videos, para incorporarlos en sus producciones."] },
+        { nombre: "Navegador", indicadores: ["Identificar el navegador como una herramienta digital, reconociendo sus partes y usos en actividades de exploración guiada por el docente."] },
+        { nombre: "Buscador", indicadores: ["Identificar el buscador como una herramienta digital para acceder a información, distinguiendo sitios confiables y no confiables durante la exploración dirigida en buscadores infantiles."] },
+        { nombre: "Netiqueta", indicadores: ["Identificar normas básicas de netiqueta que deben seguir al participar en diferentes procesos de comunicación."] },
+        { nombre: "Comunicación y colaboración sincrónica y asincrónica", indicadores: ["Identificar el correo electrónico como una herramienta de comunicación asincrónica, reconociendo sus características y su uso en actividades digitales guiadas."] },
+        { nombre: "Huella digital", indicadores: ["Reconocer qué es la huella digital y cómo puede afectar su privacidad y seguridad en línea, identificando que sus acciones en Internet dejan rastros que deben cuidarse."] },
+        { nombre: "Software malicioso", indicadores: ["Reconocer el virus informático como un tipo de software malicioso, explicando de forma sencilla sus consecuencias, como pérdida de información o mal funcionamiento en los dispositivos."] },
+        { nombre: "Riesgo en línea", indicadores: ["Reconocer algunos riesgos en línea como los perfiles falsos, la pérdida de privacidad, el contacto con extraños y la adicción al uso de dispositivos, identificando medidas básicas para protegerse en estas situaciones."] },
+        { nombre: "Medidas de seguridad web", indicadores: ["Reconocer el control parental como una medida de seguridad web en el uso de Internet que protege frente a riesgos y limita el acceso a contenido inapropiado."] }
+      ]
+    },
+    "Programación y Algoritmos": {
+      saberes: [
+        { nombre: "Algoritmo", indicadores: ["Reconocer la estructura y características de un algoritmo en diferentes representaciones, valorando el orden, inicio-fin y lógica de pasos en la solución de situaciones cotidianas."] },
+        { nombre: "Variable", indicadores: ["Utilizar la gestión de una variable en un entorno de programación por bloques declarando su tipo, asignando valores y utilizando su contenido en la resolución de un ejercicio programado."] },
+        { nombre: "Operadores aritméticos", indicadores: ["Utilizar operadores aritméticos de multiplicación y división y/o operadores relacionales como “menor que”, “mayor que” o “igual que”, en la resolución de un ejercicio programado."] },
+        { nombre: "Operadores relacionales", indicadores: ["Utilizar operadores aritméticos de multiplicación y división y/o operadores relacionales como “menor que”, “mayor que” o “igual que”, en la resolución de un ejercicio programado."] }
+      ]
+    },
+    "Ciencia de datos e Inteligencia Artificial": {
+      saberes: [
+        { nombre: "Desafíos de la IA", indicadores: ["Identificar los desafíos de la inteligencia artificial en la vida cotidiana y algunas recomendaciones para su uso seguro y responsable, con la ayuda de ejemplos guiados."] }
+      ]
+    }
+  },
+  "4°": {
+    "Apropiación tecnológica y Digital": {
+      saberes: [
+        { nombre: "Hardware", indicadores: ["Clasificar componentes de hardware según su función, distinguiendo entre dispositivos computacionales y periféricos en contextos cotidianos."] },
+        { nombre: "Software", indicadores: ["Reconocer el software identificando sus tipos (de sistema, de aplicación y utilitarios), valorando su función en el uso cotidiano."] },
+        { nombre: "Redes de comunicación", indicadores: ["Reconocer las redes de comunicación identificando la funcionalidad y aplicación de una red local en el intercambio de información."] },
+        { nombre: "Conexión entre dispositivos", indicadores: ["Reconocer la conexión entre dispositivos identificando si es física (cableada) o inalámbrica (bluetooth, Wi-Fi)."] },
+        { nombre: "Gestión de archivos", indicadores: ["Organizar archivos y carpetas, aplicando acciones básicas como crear, mover, copiar, renombrar y eliminar."] },
+        { nombre: "Herramienta de productividad (procesador de texto, editor de presentaciones)", indicadores: ["Utilizar herramientas de productividad en la creación de contenidos que incluyan texto, imágenes y formatos básicos."] },
+        { nombre: "Herramientas de creación de contenido multimedia (Editor gráfico)", indicadores: ["Aplicar herramientas de creación de contenido multimedia utilizando funciones básicas de creación, edición y guardado de imágenes."] },
+        { nombre: "Navegador", indicadores: ["Utilizar navegadores y buscadores web en la búsqueda de información en internet siguiendo una consigna dada."] },
+        { nombre: "Buscador", indicadores: ["Utilizar navegadores y buscadores web en la búsqueda de información en internet siguiendo una consigna dada."] },
+        { nombre: "Internet", indicadores: ["Identificar dispositivos que se conectan a internet describiendo sus funciones básicas."] },
+        { nombre: "Netiqueta", indicadores: ["Aplicar normas de netiqueta durante la interacción en entornos digitales."] },
+        { nombre: "Comunicación y colaboración sincrónica y asincrónica (chat)", indicadores: ["Identificar el chat como herramienta de comunicación y colaboración sincrónica y asincrónica."] },
+        { nombre: "Huella digital", indicadores: ["Identificar los usos e implicaciones de la huella digital, reconociendo cómo las acciones dejan rastros permanentes."] },
+        { nombre: "Contraseñas seguras", indicadores: ["Identificar qué es una contraseña segura y sus elementos básicos."] },
+        { nombre: "Hackeo", indicadores: ["Identificar qué es hackeo, phishing y conexiones inseguras, reconociendo situaciones de riesgo."] },
+        { nombre: "Software malicioso", indicadores: ["Identificar qué es un virus informático como tipo de software malicioso."] },
+        { nombre: "Antivirus", indicadores: ["Identificar la función y características de un antivirus."] }
+      ]
+    },
+    "Programación y Algoritmos": {
+      saberes: [
+        { nombre: "Entorno de programación por bloques", indicadores: ["Utilizar el entorno de programación por bloques explorando la interfaz y organizando bloques en la resolución de retos programados."] },
+        { nombre: "Estado", indicadores: ["Identificar el concepto de estado, reconociendo cambios en las propiedades de orientación, dirección y tamaño."] },
+        { nombre: "Algoritmo (pseudocódigo)", indicadores: ["Hacer uso de algoritmos en pseudocódigo utilizando instrucciones de forma lógica y estructurada."] },
+        { nombre: "Dato", indicadores: ["Organizar datos tipo numérico y de texto, reconociendo su uso en situaciones cotidianas."] },
+        { nombre: "Variable", indicadores: ["Gestionar una variable en la resolución de ejercicios a través de algoritmos o actividades programadas."] },
+        { nombre: "Estructuras repetitivas", indicadores: ["Utilizar estructuras repetitivas en pseudocódigo o programación por bloques."] },
+        { nombre: "Estructuras condicionales", indicadores: ["Utilizar estructuras condicionales simples y compuestas en pseudocódigo o programación."] },
+        { nombre: "Operadores aritméticos", indicadores: ["Utilizar operadores aritméticos de suma, resta, multiplicación y división en pseudocódigo o programación."] },
+        { nombre: "Operadores relacionales", indicadores: ["Utilizar operadores relacionales en pseudocódigo o programación, comparando valores."] },
+        { nombre: "Eventos", indicadores: ["Utilizar eventos en pseudocódigo o programación para el control de acciones y reacciones."] }
+      ]
+    },
+    "Ciencia de datos e Inteligencia Artificial": {
+      saberes: [
+        { nombre: "Fundamentos de la IA", indicadores: ["Identificar los fundamentos de la inteligencia artificial, reconociendo cómo aprende, toma decisiones y se diferencia de otros sistemas automatizados."] },
+        { nombre: "Asistentes virtuales", indicadores: ["Explicar el aporte de los asistentes virtuales en situaciones cotidianas, mediante el análisis de ejemplos visuales, simulaciones o actividades guiadas."] }
+      ]
+    }
+  },
+  "5°": {
+    "Apropiación tecnológica y Digital": {
+      saberes: [
+        { nombre: "Hardware", indicadores: ["Identificar dispositivos de hardware de entrada y salida mixtos como la impresora multifuncional y las pantallas interactivas."] },
+        { nombre: "Software", indicadores: ["Identificar la funcionalidad y el propósito de los diferentes softwares de ofimática."] },
+        { nombre: "Conexión entre dispositivos", indicadores: ["Identificar las formas de conexión entre dispositivos, comprendiendo los tipos de comunicación y métodos básicos para la transmisión de archivos."] },
+        { nombre: "Sistema operativo", indicadores: ["Identificar la funcionalidad del escritorio en un sistema operativo, reconociendo los elementos básicos de la barra de tareas."] },
+        { nombre: "Herramienta de productividad (hoja de cálculo)", indicadores: ["Identificar la funcionalidad de la hoja de cálculo como herramienta de productividad, aplicando opciones de edición y formato."] },
+        { nombre: "Herramientas de creación de contenido multimedia (audio y video)", indicadores: ["Elaborar contenido (audio y/o video) aplicando herramientas de creación y edición de contenido multimedia disponibles."] },
+        { nombre: "Buscador", indicadores: ["Realizar búsquedas eficientes en internet utilizando un buscador, aplicando filtros y comandos básicos, y reconociendo dominios confiables (.edu, .go, .org, .com)."] },
+        { nombre: "Derechos de autor", indicadores: ["Reconocer qué es derecho de autor y cómo incorporarlo en sus producciones, evitando el plagio al citar adecuadamente las fuentes utilizadas."] }
+      ]
+    },
+    "Programación y Algoritmos": {
+      saberes: [
+        { nombre: "Entorno de programación por bloques para computación física", indicadores: ["Utilizar el entorno de programación por bloques para computación física explorando la interfaz y organizando bloques."] },
+        { nombre: "Lógica de programación", indicadores: ["Reconocer proposiciones como afirmaciones verdaderas o falsas en el contexto de la lógica de programación."] },
+        { nombre: "Algoritmo (Diagrama de flujo)", indicadores: ["Aplicar mediante diagramas de flujo un algoritmo, utilizando símbolos y secuencias lógicas."] },
+        { nombre: "Dato", indicadores: ["Utilizar datos tipo booleano en la resolución de problemas en entornos de programación."] },
+        { nombre: "Variable", indicadores: ["Aplicar la gestión de variables en programación, modificando su valor durante la ejecución de algoritmos."] },
+        { nombre: "Colección de datos", indicadores: ["Organizar datos en programación mediante el uso de listas o agrupaciones de elementos con características comunes."] },
+        { nombre: "Estructuras condicionales", indicadores: ["Aplicar estructuras condicionales múltiples en diagramas de flujo o programación."] },
+        { nombre: "Operadores Lógicos", indicadores: ["Reconocer operadores lógicos de conjunción (Y) y disyunción (O) en la resolución de problemas."] },
+        { nombre: "Procedimientos/funciones", indicadores: ["Reconocer procedimientos o funciones en programación, comprendiendo cómo se declaran, invocan y se usan parámetros y argumentos."] }
+      ]
+    },
+    "Computación física y Robótica": {
+      saberes: [
+        { nombre: "Robot", indicadores: ["Reconocer qué es y qué no es un robot, identificando sus componentes básicos como el cuerpo, el sistema sensorial y el sistema de control."] },
+        { nombre: "Computación física", indicadores: ["Reconocer los componentes básicos de la computación física, como el microcontrolador, sensores, actuadores y el entorno de programación."] },
+        { nombre: "Circuito eléctrico", indicadores: ["Identificar componentes básicos de un circuito eléctrico, reconociendo su tipo, el flujo de corriente, la polaridad y la función del interruptor."] },
+        { nombre: "Fundamentos de electrónica", indicadores: ["Identificar fundamentos de electrónica, reconociendo la función de los pines de entrada y salida, así como la diferencia entre señales analógicas y digitales."] },
+        { nombre: "Microcontrolador", indicadores: ["Reconocer el funcionamiento básico de un microcontrolador, identificando los pines digitales y analógicos."] },
+        { nombre: "Sensor", indicadores: ["Identificar sensores integrados y externos, reconociendo su funcionamiento y la forma de conectarlos a VCC y GND."] },
+        { nombre: "Actuador", indicadores: ["Identificar actuadores integrados y externos, reconociendo cómo se conectan a VCC y GND mientras generan una salida física."] },
+        { nombre: "Domótica", indicadores: ["Identificar usos y aplicaciones de la domótica, reconociendo cómo la automatización mejora la comodidad y eficiencia."] }
+      ]
+    },
+    "Ciencia de datos e Inteligencia Artificial": {
+      saberes: [
+        { nombre: "Dato", indicadores: ["Identificar el dato de tipo numérico y de texto en situaciones cotidianas, a partir del registro de información."] },
+        { nombre: "Recolección de datos", indicadores: ["Reconocer técnicas de recolección de datos según el tipo de información que se desea obtener."] },
+        { nombre: "Almacenamiento de datos", indicadores: ["Identificar formas de almacenamiento de datos, reconociendo cómo se utilizan archivos locales y hojas de cálculo."] },
+        { nombre: "Visualización de datos", indicadores: ["Identificar la visualización de datos mediante formas de representación como gráficos o tablas."] },
+        { nombre: "Estrategias para presentar datos", indicadores: ["Reconocer las tablas como una estrategia para presentar datos organizadamente."] },
+        { nombre: "Herramientas generativas", indicadores: ["Reconocer herramientas digitales generativas (texto, imagen o audio) que producen contenido a partir de instrucciones sencillas."] },
+        { nombre: "Desafíos de la IA", indicadores: ["Reconocer desafíos de la inteligencia artificial relacionados con la protección de la información personal sensible."] }
+      ]
+    }
+  },
+  "6°": {
+    "Apropiación tecnológica y Digital": {
+      saberes: [
+        { nombre: "Hardware", indicadores: ["Analizar las funciones de los componentes internos del hardware como la memoria RAM, tarjeta madre, disco duro, microprocesador y tarjetas de red, video y sonido."] },
+        { nombre: "Conexión entre dispositivos", indicadores: ["Explicar cómo las direcciones IP permiten la conexión entre dispositivos y su comunicación dentro de una red local o en internet."] },
+        { nombre: "Redes de comunicación", indicadores: ["Describir diferentes tipos de redes de comunicación (red fija telefónica, red móvil, red de televisión por cable y red satelital)."] },
+        { nombre: "Gestión de archivos", indicadores: ["Analizar la gestión de archivos considerando las propiedades de los archivos digitales (tamaño, tipo y extensión) y aplicando procesos de compresión y descompresión."] },
+        { nombre: "Sistema operativo", indicadores: ["Identificar herramientas del sistema operativo como el administrador de tareas, la limpieza de archivos temporales y la gestión de memoria."] },
+        { nombre: "Herramienta de productividad", indicadores: ["Utilizar la herramienta de productividad seleccionando entre opciones de ofimática local o en línea, según el contexto de uso."] },
+        { nombre: "Herramientas de creación de contenido multimedia", indicadores: ["Crear contenido (imagen, audio y/o video) con herramientas de creación de contenido multimedia disponibles."] },
+        { nombre: "Internet", indicadores: ["Identificar el funcionamiento básico de Internet, reconociendo cómo se establece la conectividad y el rol de los proveedores de servicios."] },
+        { nombre: "Comunicación y colaboración sincrónica y asincrónica", indicadores: ["Aplicar la comunicación y colaboración sincrónica y asincrónica en la creación de documentos, organización de carpetas y gestión del correo electrónico."] },
+        { nombre: "Almacenamiento en la nube", indicadores: ["Crear archivos digitales en plataformas de almacenamiento en la nube, configurando los permisos de uso compartido."] },
+        { nombre: "Referencias bibliográficas", indicadores: ["Aplicar un formato básico de referencias bibliográficas (autor, título y fuente) en las producciones."] },
+        { nombre: "Internet de las cosas", indicadores: ["Reconocer aplicaciones del Internet de las Cosas (IoT) en la cotidianidad."] },
+        { nombre: "Moneda virtual", indicadores: ["Reconocer la utilidad e implicaciones básicas de las monedas virtuales."] },
+        { nombre: "Huella digital", indicadores: ["Aplicar medidas básicas para proteger la privacidad en línea, gestionando su huella digital."] },
+        { nombre: "Contraseñas seguras", indicadores: ["Reconocer la importancia de las contraseñas seguras, aplicando estrategias básicas como el uso de doble factor."] },
+        { nombre: "Software malicioso", indicadores: ["Identificar las formas comunes de propagación de software malicioso y estrategias básicas de prevención."] },
+        { nombre: "Riesgos en línea", indicadores: ["Identificar riesgos en línea como ciberacoso, contenido inapropiado y suplantación de identidad."] },
+        { nombre: "Medidas de seguridad en la web", indicadores: ["Identificar medidas de seguridad en la web, reconociendo la diferencia entre HTTPS y HTTP."] }
+      ]
+    },
+    "Programación y Algoritmos": {
+      saberes: [
+        { nombre: "Lógica de programación (tablas de verdad)", indicadores: ["Aplicar la lógica de programación (tablas de verdad) con operadores de conjunción y disyunción."] },
+        { nombre: "Procedimientos/funciones", indicadores: ["Emplear procedimientos o funciones (declaración, invocación, parámetros y argumentos) en la resolución de ejercicios programados."] }
+      ]
+    },
+    "Computación física y Robótica": {
+      saberes: [
+        { nombre: "Computación física", indicadores: ["Aplicar la computación física en la creación de soluciones automatizadas, como respuesta a necesidades concretas del entorno cotidiano."] },
+        { nombre: "Prototipos", indicadores: ["Diseñar prototipos de sistemas automatizados, aplicando conocimientos de computación física para resolver necesidades concretas."] }
+      ]
+    },
+    "Ciencia de datos e Inteligencia Artificial": {
+      saberes: [
+        { nombre: "Dato", indicadores: ["Aplicar registros como datos relevantes, organizando información en tablas a partir de gastos, notas, actividades deportivas o registros básicos de salud."] },
+        { nombre: "Recolección de datos", indicadores: ["Seleccionar técnicas de recolección de datos aplicándolas según el tipo de información que se desea obtener."] },
+        { nombre: "Almacenamientos de datos", indicadores: ["Aplicar formas de almacenamiento de datos como archivos locales o en línea y herramientas digitales como hojas de cálculo."] },
+        { nombre: "Visualización de datos", indicadores: ["Aplicar técnicas de visualización de datos, creando representaciones gráficas simples como gráficos pictóricos o de barras."] },
+        { nombre: "Estrategias para presentar datos", indicadores: ["Crear gráficos de barras o lineales a partir de datos, aplicando estrategias para representar datos."] }
+      ]
+    }
+  },
+  "7°": {
+    "Apropiación tecnológica y Digital": {
+      saberes: [
+        { nombre: "Computadora", indicadores: ["Aplicar reglas básicas y responsabilidades durante el uso de una computadora, contribuyendo al cuidado, seguridad y prolongación de su vida útil."] },
+        { nombre: "Hardware", indicadores: ["Clasificar tipos de computadoras y sus componentes principales de hardware, identificando funciones de periféricos comunes."] },
+        { nombre: "Software", indicadores: ["Distinguir los tipos de software relacionándolos con sus funciones y usos en tareas cotidianas."] },
+        { nombre: "Redes de comunicación", indicadores: ["Identificar tipos de redes de comunicación y sus dispositivos principales (módem, router y puntos de acceso)."] },
+        { nombre: "Sistema operativo", indicadores: ["Identificar las categorías de los sistemas operativos (escritorio y dispositivos móviles), describiendo su función básica."] },
+        { nombre: "Gestión de archivos", indicadores: ["Aplicar las propiedades (tamaño, tipo y extensión) en la gestión de archivos para compartir información."] },
+        { nombre: "Herramienta de productividad (Procesador de texto, Editor de presentaciones)", indicadores: ["Aplicar la herramienta de productividad cómo procesador de texto y/o editor de presentación para crear productos comunicativos."] },
+        { nombre: "Herramientas de creación de contenido multimedia (Editor de gráficos)", indicadores: ["Diseñar productos visuales con herramientas de creación multimedia utilizando editores gráficos."] },
+        { nombre: "Internet", indicadores: ["Reconocer el funcionamiento de Internet, comprendiendo la conectividad entre dispositivos y el rol de los proveedores de servicio (ISP)."] },
+        { nombre: "Navegador", indicadores: ["Utilizar el navegador y el buscador web para acceder y localizar información en línea, gestionando pestañas."] },
+        { nombre: "Buscador", indicadores: ["Utilizar el navegador y el buscador web para acceder y localizar información en línea, gestionando pestañas."] },
+        { nombre: "Netiqueta", indicadores: ["Utilizar herramientas de comunicación y colaboración sincrónica y asincrónica, aplicando normas de netiqueta."] },
+        { nombre: "Comunicación y colaboración sincrónica/asincrónica", indicadores: ["Utilizar herramientas de comunicación y colaboración sincrónica y asincrónica, aplicando normas de netiqueta."] },
+        { nombre: "Almacenamiento en la nube", indicadores: ["Utilizar el almacenamiento en la nube para guardar, organizar y compartir archivos digitales."] },
+        { nombre: "Referencias bibliográficas", indicadores: ["Aplicar formatos básicos de referencias bibliográficas en producciones digitales o escritas."] },
+        { nombre: "Criptomonedas", indicadores: ["Reconocer la utilidad e implicaciones del uso de criptomonedas en entornos digitales cotidianos."] },
+        { nombre: "Contraseñas seguras", indicadores: ["Crear contraseñas seguras utilizando generadores aleatorios."] },
+        { nombre: "Software malicioso", indicadores: ["Reconocer las características del software malicioso, analizando los riesgos asociados."] },
+        { nombre: "Riesgos en línea", indicadores: ["Identificar riesgos en línea como la suplantación de identidad, grooming, phishing y noticias falsas."] }
+      ]
+    },
+    "Programación y Algoritmos": {
+      saberes: [
+        { nombre: "Entorno de programación textual o bloques", indicadores: ["Reconocer un entorno de programación textual o bloques, identificando sus funciones."] },
+        { nombre: "Lógica de programación", indicadores: ["Identificar la lógica de programación con el uso de proposiciones y conectores lógicos (AND, OR, NOT)."] },
+        { nombre: "Algoritmo", indicadores: ["Reconocer el algoritmo identificando su estructura (entrada, proceso, salida) y aplicando sus características."] },
+        { nombre: "Dato", indicadores: ["Identificar tipos de dato y formas de almacenamiento, aplicándolos en la creación de algoritmos."] },
+        { nombre: "Variable", indicadores: ["Identificar tipos de variable, aplicando su gestión mediante declaraciones y asignaciones."] },
+        { nombre: "Estructuras condicionales", indicadores: ["Aplicar estructuras condicionales en un entorno de programación para la resolución de desafíos."] },
+        { nombre: "Estructuras repetitivas", indicadores: ["Aplicar estructuras repetitivas en un entorno de programación para resolver desafíos."] },
+        { nombre: "Operadores aritméticos", indicadores: ["Aplicar operadores aritméticos (suma, resta, multiplicación y división) para resolver cálculos."] },
+        { nombre: "Operadores relacionales", indicadores: ["Aplicar operadores relacionales para realizar comparaciones."] },
+        { nombre: "Operadores lógicos", indicadores: ["Aplicar operadores lógicos (Y, O, NO) en la resolución de desafíos de programación."] },
+        { nombre: "Evento", indicadores: ["Aplicar un evento como acción que se detona mediante una causa y un efecto."] },
+        { nombre: "Procedimientos y/o funciones", indicadores: ["Aplicar procedimientos y/o funciones como estructura modular, a través de su declaración e invocación."] }
+      ]
+    },
+    "Ciencia de datos e Inteligencia Artificial": {
+      saberes: [
+        { nombre: "Dato", indicadores: ["Identificar tipos de dato (numéricos, de texto, de ubicación y de imágenes), analizando cómo influye en decisiones."] },
+        { nombre: "Fundamentos de la IA", indicadores: ["Reconocer los fundamentos de la inteligencia artificial, identificando el concepto y sus aplicaciones."] },
+        { nombre: "Asistentes virtuales", indicadores: ["Identificar qué son los asistentes virtuales basados en inteligencia artificial, reconociendo su utilidad."] }
+      ]
+    }
+  },
+  "8°": {
+    "Apropiación tecnológica y Digital": {
+      saberes: [
+        { nombre: "Hardware", indicadores: ["Analizar el funcionamiento de los componentes internos del hardware, describiendo cómo influyen en el rendimiento."] },
+        { nombre: "Software", indicadores: ["Analizar los tipos de software según su función, comparando las características y usos."] },
+        { nombre: "Redes de comunicación", indicadores: ["Identificar las funciones de las unidades de almacenamiento de las redes de comunicación."] },
+        { nombre: "Conexión entre dispositivos", indicadores: ["Distinguir las formas de conexión entre dispositivos mediante comunicación física o inalámbrica."] },
+        { nombre: "Sistema Operativo", indicadores: ["Reconocer las características del sistema operativo y la diferencia entre software libre y de paga."] },
+        { nombre: "Gestión de archivos", indicadores: ["Aplicar la compresión y descompresión de archivos como parte de la gestión de archivos digitales."] },
+        { nombre: "Herramienta de productividad (Hoja de cálculo)", indicadores: ["Utilizar la hoja de cálculo como herramienta de productividad en la organización y representación de datos."] },
+        { nombre: "Herramientas de creación de contenido multimedia (Edición de audio y video)", indicadores: ["Utilizar herramientas de creación de contenido multimedia en la edición de audio o video."] },
+        { nombre: "Buscador", indicadores: ["Utilizar el buscador web como herramienta para la localización de información, aplicando criterios que identifiquen fuentes confiables."] },
+        { nombre: "Plataformas de creación de contenido", indicadores: ["Utilizar plataformas de creación de contenido digital en la elaboración de infografías, diagramas o presentaciones."] },
+        { nombre: "Licencia", indicadores: ["Reconocer la licencia digital en el uso de contenido en línea, valorando sus alcances y limitaciones."] },
+        { nombre: "Internet de las cosas", indicadores: ["Analizar aplicaciones del Internet de las cosas en la automatización de tareas."] },
+        { nombre: "Hackeo", indicadores: ["Reconocer el hackeo como una amenaza digital, diferenciando tipos de hacker."] },
+        { nombre: "Software malicioso", indicadores: ["Aplicar medidas de protección digital mediante el reconocimiento de tipos de software malicioso y el uso adecuado del antivirus."] },
+        { nombre: "Antivirus", indicadores: ["Aplicar medidas de protección digital mediante el reconocimiento de tipos de software malicioso y el uso adecuado del antivirus."] }
+      ]
+    },
+    "Programación y Algoritmos": {
+      saberes: [
+        { nombre: "Entorno de programación textual o bloques para programar mecanismos robóticos", indicadores: ["Aplicar el entorno de programación textual o por bloques para programar mecanismos robóticos, utilizando estructuras y eventos."] },
+        { nombre: "Colección de datos", indicadores: ["Gestionar una colección de datos como listas o arreglos mediante su creación, recorrido y modificación."] }
+      ]
+    },
+    "Computación física y Robótica": {
+      saberes: [
+        { nombre: "Robot", indicadores: ["Reconocer qué es un robot, sus tipos y componentes (cuerpo, sistema sensorial y sistema de control)."] },
+        { nombre: "Robótica", indicadores: ["Diferenciar la computación física con la robótica, identificando cómo los sensores, actuadores y sistemas de control se integran."] },
+        { nombre: "Mecánica aplicada a la robótica", indicadores: ["Emplear principios de la mecánica aplicados a la robótica, como la estructura y la estabilidad."] },
+        { nombre: "Mecanismos", indicadores: ["Reconocer los tipos de mecanismos, identificando su función principal en la transmisión y transformación del movimiento."] },
+        { nombre: "Circuito eléctrico", indicadores: ["Identificar los componentes de un circuito eléctrico y su funcionamiento."] },
+        { nombre: "Fundamentos de electrónica", indicadores: ["Identificar fundamentos de electrónica, reconociendo la función de pines de entrada y salida."] },
+        { nombre: "Microcontrolador", indicadores: ["Comprender los componentes básicos de un microcontrolador, aplicando la función de pines digitales y analógicos."] },
+        { nombre: "Sensor", indicadores: ["Utilizar un sensor integrado y/o externo, comprendiendo su función y su correcta conexión a VCC y GND."] },
+        { nombre: "Actuador", indicadores: ["Utilizar un actuador integrado y/o externo, comprendiendo su función y cómo se conecta correctamente a VCC y GND."] }
+      ]
+    },
+    "Ciencia de datos e Inteligencia Artificial": {
+      saberes: [
+        { nombre: "Recolección de datos", indicadores: ["Aplicar técnicas de recolección de datos mediante registros escolares y personales."] },
+        { nombre: "Fundamentos de la IA", indicadores: ["Reconocer los fundamentos de la inteligencia artificial, identificando cómo funciona y se diferencia de otros sistemas digitales."] },
+        { nombre: "Herramientas generativas", indicadores: ["Utilizar herramientas generativas basadas en inteligencia artificial, aplicando funciones para la creación o modificación de contenido digital."] }
+      ]
+    }
+  },
+  "9°": {
+    "Apropiación tecnológica y Digital": {
+      saberes: [
+        { nombre: "Redes de comunicación", indicadores: ["Reconocer las redes de comunicación a partir de su arquitectura, protocolos (como HTTP, HTTPS y TCP/IP) e interfaces."] },
+        { nombre: "Sistema Operativo", indicadores: ["Aplicar técnicas de optimización del sistema operativo, identificando cómo gestionar memoria, desfragmentar discos, limpiar caché y actualizar el sistema."] },
+        { nombre: "Herramienta de productividad (Gestor de bases de datos)", indicadores: ["Utilizar un gestor de bases de datos como herramienta de productividad para la creación de tablas, estableciendo relaciones entre ellas y realizando consultas."] },
+        { nombre: "Herramientas de creación de contenido multimedia", indicadores: ["Utilizar herramientas de creación de contenido multimedia para el modelado 3D."] },
+        { nombre: "Plataformas de creación de contenido", indicadores: ["Crear encuestas o formularios mediante plataformas de creación de contenido, ajustando su formato y estructura."] },
+        { nombre: "Derechos de autor y licenciamiento", indicadores: ["Reconocer la importancia de los derechos de autor y el licenciamiento, aplicando buenas prácticas de uso ético y legal."] },
+        { nombre: "Huella digital", indicadores: ["Analizar la utilidad e implicaciones de la huella digital, valorando cómo las acciones en línea afectan la identidad, reputación y seguridad."] },
+        { nombre: "Riesgos en línea", indicadores: ["Analizar riesgos en línea (acceso a información inapropiada, ciberadicción, ciberacoso y el sexting)."] }
+      ]
+    },
+    "Programación y Algoritmos": {
+      saberes: [
+        { nombre: "Entorno de programación textual o bloques para programar mecanismos robóticos", indicadores: ["Diseñar soluciones automatizadas en un entorno de programación textual o por bloques para programar mecanismos robóticos."] },
+        { nombre: "Algoritmo", indicadores: ["Diseñar un algoritmo para resolver un problema, representándolo de forma estructurada mediante pseudocódigo o diagrama de flujo."] }
+      ]
+    },
+    "Computación física y Robótica": {
+      saberes: [
+        { nombre: "Movimiento en mecanismos", indicadores: ["Identificar el movimiento en mecanismos robóticos, diferenciando el movimiento de entrada y salida."] },
+        { nombre: "Microcontrolador", indicadores: ["Aplicar las funciones de un microcontrolador, utilizando pines digitales y analógicos, conexión a VCC y GND."] },
+        { nombre: "Sensor", indicadores: ["Integrar un sensor en un prototipo, utilizando sus datos como entrada para generar respuestas automatizadas."] },
+        { nombre: "Actuador", indicadores: ["Integrar un actuador en un prototipo, programando su activación como respuesta a entradas digitales o condiciones del sistema."] },
+        { nombre: "Domótica", indicadores: ["Analizar los usos, aplicaciones y beneficios de la domótica, mediante la creación o simulación de un prototipo."] },
+        { nombre: "Prototipos", indicadores: ["Construir prototipos que integren sensores, actuadores y un microcontrolador, a partir de una necesidad identificada."] }
+      ]
+    },
+    "Ciencia de datos e Inteligencia Artificial": {
+      saberes: [
+        { nombre: "Dato", indicadores: ["Reconocer la importancia de la organización y conservación del dato, aplicando criterios de seguridad y responsabilidad."] },
+        { nombre: "Almacenamiento de datos", indicadores: ["Reconocer el ciclo de vida del dato en el almacenamiento de datos, identificando las etapas de creación, uso, conservación y eliminación responsable."] },
+        { nombre: "Herramientas generativas", indicadores: ["Aplicar herramientas generativas con inteligencia artificial en la producción de contenido digital, considerando criterios de seguridad, propiedad intelectual y responsabilidad digital."] },
+        { nombre: "Desafíos de la IA", indicadores: ["Reconocer los desafíos de la inteligencia artificial, identificando riesgos como sesgos, manipulación de información, dependencia tecnológica y privacidad de datos."] }
+      ]
+    }
+  }
+};
+
+// Saberes procedimentales y actitudinales comunes
+const SABERES_PROCEDIMENTALES = "Reconoce patrones, abstrae, generaliza, transfiere, modulariza, formula algoritmos, remezcla, depura, programa, comunica, colabora, piensa de forma creativa, maneja tecnologías de forma ética y segura.";
+const SABERES_ACTITUDINALES = "Gusto por la precisión, aprender del error, flexibilidad para manejar problemas, tolerancia a la frustración.";
+// === RECURSOS DIDÁCTICOS POR NIVEL, ÁREA Y SABER ===
+const RECURSOS_POR_SABER = {
+  "Preescolar": {
+    "Programación y Algoritmos": {
+      "Algoritmo": "Algoritmo_reconocimiento_patrones",
+      "Dato": "Dato físico",
+      "Dato": "Dato digital",
+      "Evento":"Evento",
+      "Secuencia": "Secuencia"
+    },
+    "Computación física y Robótica":{
+       "Robot" : "Robot_preescolar" 
+     },
+     "Ciencia de datos e Inteligencia Artificial": {
+      "Dato": "Dato"  
+     }
+  },
+
+  "1°": {
+    "Programación y Algoritmos": {
+      "Algoritmo": "Algoritmo_1°",
+      "Reconocimiento de patrones": "Reconocimiento de patrones",
+      "Estructuras repetitivas":"Ciclo_finito_infinito"
+    }
+  },
+  "2°": {
+    "Programación y Algoritmos": {
+      "Variable": "variables_2°"
+    }
+  },
+  "4°": {
+    "Programación y Algoritmos": {
+      "Algoritmo (pseudocódigo)": "Algoritmo_4°"
+    }
+  },
+  "5°": {
+    "Programación y Algoritmos": {
+      "Algoritmo (Diagrama de flujo)": "Algoritmo_diagrama_flujo_5°"
+    }
+  },
+  "6°": {
+    "Programación y Algoritmos": {
+      "Algoritmo": "Algoritmo_6°"
+    }
+  }
+};
