@@ -1,1 +1,203 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agente Soldado - Generador Inteligente PNFT-MEP</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;margin:0;padding:0;}
+header{background:#0b63d6;color:white;padding:14px;text-align:center;font-size:1.4rem;font-weight:bold;}
+.container{max-width:1100px;margin:auto;padding:20px;}
+.panel{display:flex;flex-wrap:wrap;gap:20px;}
+.left{flex:1 1 340px;background:white;padding:18px;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,0.08);}
+.right{flex:3 1 600px;background:white;padding:18px;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,0.08);}
+label{font-weight:bold;margin-top:12px;display:block;}
+input,select,textarea{width:100%;padding:8px;margin-top:5px;border:1px solid #ccc;border-radius:6px;}
+button{padding:10px 14px;border:none;border-radius:8px;background:#0b63d6;color:white;font-weight:bold;cursor:pointer;}
+button:hover{opacity:0.9;}
+.plan{background:#eef2ff;padding:14px;margin-top:12px;border-radius:10px;border-left:6px solid #0b63d6;}
+.plan h3{margin:0;margin-bottom:6px;}
+.plan h4{margin-bottom:4px;}
+.btn-mini{background:#333;padding:6px 10px;font-size:0.8rem;border-radius:6px;}
+.footer{margin-top:30px;text-align:center;color:#666;font-size:0.85rem;}
+</style>
+</head>
+<body>
 
+<header>AGENTE SOLDADO — Generador Resiliente de Planeamientos PNFT / MEP</header>
+
+<div class="container">
+<div class="panel">
+
+<!-- LEFT PANEL -->
+<div class="left">
+<h3>Datos para generar</h3>
+
+<label>Niveles (multi-selección):</label>
+<select id="levels" multiple size="6"></select>
+
+<label>Grupos por nivel:</label>
+<input type="number" id="groupsCount" value="3" min="1" max="10">
+
+<label>Periodo / Semana:</label>
+<input id="period" value="Semana 1">
+
+<label>Metodología:</label>
+<select id="method">
+<option>Aprendizaje basado en retos (ABR)</option>
+<option>Aprendizaje basado en proyectos (ABP)</option>
+<option>Design Thinking</option>
+</select>
+
+<label>RDA (Resultado de aprendizaje):</label>
+<textarea id="rda" rows="4">Desarrollar habilidades de pensamiento computacional aplicadas a problemas reales.</textarea>
+
+<br><br>
+<button id="generateBtn">GENERAR PLANEAMIENTOS</button>
+<br><br>
+<button id="clearBtn" style="background:#444;">BORRAR RESULTADOS</button>
+<br><br>
+<button id="printAll" style="background:#008f39;">IMPRIMIR / PDF</button>
+
+<br><br>
+<button id="toggleMode" style="background:#ff5722;">MODO: IA LOCAL</button>
+
+<p style="font-size:0.85rem;color:#666;margin-top:14px;">
+Este archivo funciona en cualquier celular, incluso sin Internet.<br>
+Si pones tu URL de n8n, generará planeamientos reales desde la nube.
+</p>
+</div>
+
+<!-- RIGHT PANEL -->
+<div class="right">
+<h3>Planeamientos generados</h3>
+<div id="plansContainer"></div>
+</div>
+
+</div>
+</div>
+
+<div class="footer">Versión: Agente Soldado — Demo IA + Conexión n8n</div>
+
+<script>
+// =====================
+//   DATOS PNFT SIMULADOS
+// =====================
+const PNFT = {
+  niveles:{
+    "1":{competencias:["Reconocer patrones"],indicadores:["Identifica patrones básicos"]},
+    "2":{competencias:["Secuencias lógicas"],indicadores:["Aplica pasos en orden"]},
+    "3":{competencias:["Prototipado simple"],indicadores:["Construye modelos iniciales"]},
+    "4":{competencias:["Abstracción"],indicadores:["Generaliza procesos"]},
+    "5":{competencias:["Evaluación crítica"],indicadores:["Compara alternativas"]},
+    "6":{competencias:["Integración avanzada"],indicadores:["Integra múltiples herramientas"]}
+  }
+};
+
+// LLENAR SELECT DE NIVELES
+const levelsSelect = document.getElementById('levels');
+Object.keys(PNFT.niveles).forEach(n=>{
+  const op=document.createElement('option');
+  op.value=n;
+  op.textContent=`Nivel ${n} — ${PNFT.niveles[n].competencias[0]}`;
+  levelsSelect.appendChild(op);
+});
+
+// ======================
+// CONFIG: MODO IA LOCAL / n8n
+// ======================
+let modo = "local";
+let N8N_URL = ""; // Coloca aquí tu webhook cuando lo tengas
+
+document.getElementById("toggleMode").onclick = ()=>{
+  if(modo==="local"){
+    modo="n8n";
+    document.getElementById("toggleMode").textContent="MODO: n8n";
+    alert("Modo n8n activado. Recuerda agregar tu URL de webhook dentro del código.");
+  } else {
+    modo="local";
+    document.getElementById("toggleMode").textContent="MODO: IA LOCAL";
+    alert("Modo IA Local activado.");
+  }
+};
+
+// ======================
+//   GENERADOR IA LOCAL
+// ======================
+function generarTextoIA(plan){
+  return `
+El estudiante desarrollará la capacidad de aplicar ${plan.rda.toLowerCase()} utilizando una metodología ${plan.metodologia}. A nivel ${plan.nivel}, se espera que logre: ${plan.indicadores}. 
+La mediación incluirá actividades prácticas, reflexión guiada y trabajo colaborativo con enfoque en pensamiento computacional.
+  `;
+}
+
+// =====================
+//   GENERAR PLANEAMIENTO
+// =====================
+document.getElementById('generateBtn').onclick = ()=>{
+  const levels = Array.from(levelsSelect.selectedOptions).map(o=>o.value);
+  const groups = parseInt(document.getElementById('groupsCount').value);
+  const period = document.getElementById('period').value;
+  const method = document.getElementById('method').value;
+  const rda = document.getElementById('rda').value;
+  const cont = document.getElementById('plansContainer');
+
+  if(levels.length===0) return alert("Selecciona al menos un nivel.");
+
+  cont.innerHTML="";
+
+  levels.forEach(n=>{
+    for(let g=1; g<=groups; g++){
+      const grupo = String.fromCharCode(64+g);
+      const data = {
+        nivel:n,
+        grupo,
+        periodo:period,
+        metodologia:method,
+        rda,
+        competencias:PNFT.niveles[n].competencias.join(", "),
+        indicadores:PNFT.niveles[n].indicadores.join(", ")
+      };
+
+      if(modo==="local"){
+        const texto = generarTextoIA(data);
+        mostrarPlan({...data, texto});
+      } else {
+        fetch(N8N_URL,{
+          method:"POST",
+          headers:{ "Content-Type":"application/json"},
+          body:JSON.stringify(data)
+        })
+        .then(r=>r.json())
+        .then(resp=>{
+          mostrarPlan({...data,texto:resp.resultado || JSON.stringify(resp)});
+        })
+        .catch(err=>alert("Error con n8n: "+err));
+      }
+    }
+  });
+};
+
+function mostrarPlan(plan){
+  const el=document.createElement('div');
+  el.className="plan";
+  el.innerHTML=`
+    <h3>Planeamiento — Nivel ${plan.nivel} Grupo ${plan.grupo}</h3>
+    <p><b>Periodo:</b> ${plan.periodo}</p>
+    <p><b>Metodología:</b> ${plan.metodologia}</p>
+    <p><b>RDA:</b> ${plan.rda}</p>
+    <h4>Texto generado:</h4>
+    <p>${plan.texto}</p>
+  `;
+  document.getElementById('plansContainer').appendChild(el);
+}
+
+document.getElementById('clearBtn').onclick = ()=>{
+  document.getElementById('plansContainer').innerHTML="";
+};
+
+document.getElementById('printAll').onclick = ()=> window.print();
+</script>
+
+</body>
+</html>
